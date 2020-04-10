@@ -1,21 +1,23 @@
 class Artist 
   attr_accessor :name, :songs
-  
+
   @@all = []
   
   def initialize(name)
     @name = name 
     @@all << self
-    #@songs = [] ## goes here cause a artist can hold many songs so an instance of Artist can hold many instances of songs
+    @songs = [] ## goes here cause a artist can hold many songs so an instance of Artist can hold many instances of songs
   end 
   
   def self.all 
     @@all 
   end 
+
   
-  def songs
-    Song.all.select { |song| song.artist == self}
-  end 
+  
+  # def songs
+  #   Song.all.select { |song| song.artist == self}
+  # end 
   
   def add_song(song)
     song.artist = self
